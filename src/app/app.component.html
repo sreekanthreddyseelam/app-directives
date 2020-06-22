@@ -1,0 +1,56 @@
+<h1>hello</h1>
+<ul>
+  <li *ngFor="let user of users">{{user}}</li>
+</ul>
+<h2 class="text-center">NgFor Directive</h2>
+<table class="table">
+  <thead class="table-primary">
+    <tr>
+    <th>Index</th>
+    <th>Id</th>
+    <th>Name</th>
+    <th>City</th>
+  </tr>
+</thead>
+<tr>
+  <tr *ngFor="let user1 of users1;let i=index">
+    <td>{{i}}</td>
+    <td>{{user1.id}}</td>
+    <td>{{user1.name}}</td>
+    <td>{{user1.city}}</td>
+  </tr>
+  
+
+</table>
+<h2 class="text-center">NgIF</h2>
+<div *ngIf="isUserLoggedIn; else logout">
+  <p>user successful login</p>
+
+</div>
+<ng-template #logout>logout successful</ng-template>
+
+<h1 class="text-center">NgSwitch</h1>
+Select Country :<select (change)="choice($event.target.value)">
+  <option value="">select country</option>
+  <option *ngFor="let c of countries"   [value]="c.code"> {{ c.country }} </option>
+</select>
+
+<div [ngSwitch]="selectcountry">
+
+  <div *ngSwitchCase="'IND'" class="jumbotron">
+    <h1>India calling code is +91</h1>
+  </div>
+
+<div *ngSwitchCase="'DE'" class="jumbotron">
+  <h1>Germany calling code is +49</h1>
+</div>
+
+<div *ngSwitchCase="'Uk'" class="jumbotron">
+  <h1>UnitedKingdom calling code is +44</h1>
+</div>
+<div *ngSwitchDefault class="jumbotron">
+  <h1>Select country</h1>
+</div>
+
+
+</div>
